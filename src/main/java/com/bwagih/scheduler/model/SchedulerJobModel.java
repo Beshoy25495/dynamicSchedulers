@@ -1,6 +1,5 @@
 package com.bwagih.scheduler.model;
 
-import com.knet.tradenet.tnscheduler.db.tables.pojos.TnSchedulerJob;
 import lombok.*;
 
 import java.util.HashMap;

@@ -3,16 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.knet.tradenet</groupId>
-    <artifactId>TNSCHEDULER</artifactId>
+    <groupId>com.bwagih</groupId>
+    <artifactId>SCHEDULER</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
-    <name>TNSCHEDULER</name>
-    <description>Tradenet TNSCHEDULER Webservices</description>
+    <name>SCHEDULER</name>
+    <description>SCHEDULER Webservices</description>
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <project.filename>TNSCHEDULER</project.filename>
+        <project.filename>SCHEDULER</project.filename>
         <project.skip.build>false</project.skip.build>
         <skipPluginPhase>initialize</skipPluginPhase>
         <maven-compiler-plugin>3.8.1</maven-compiler-plugin>
@@ -21,13 +21,13 @@
         <maven-war-plugin>3.2.3</maven-war-plugin>
         <codehaus-mojo-properties-maven-plugin>1.0.0</codehaus-mojo-properties-maven-plugin>
         <orai18n>11.2.0.3</orai18n>
-        <tradenet.db.url>jdbc:oracle:thin:@oracledb-srv1.tradenet.com:1521:investment</tradenet.db.url>
-        <tradenet-db-user>tradesuper</tradenet-db-user>
-        <tradenet-db-password>tradesuper</tradenet-db-password>
-        <tradesuper-schema>tradesuper</tradesuper-schema>
+        <scheduler.db.url></scheduler.db.url>
+        <scheduler-db-user></scheduler-db-user>
+        <scheduler-db-password></scheduler-db-password>
+        <scheduler-schema></scheduler-schema>
         <jooq-version>3.12.3</jooq-version>
         <src.dir>src/main/java</src.dir>
-        <jooq-generated-package>com.knet.tradenet.tnscheduler.db</jooq-generated-package>
+        <jooq-generated-package>com.bwagih.scheduler.db</jooq-generated-package>
         <javax-servlet-jstl>1.2</javax-servlet-jstl>
         <javax-servlet-api>4.0.1</javax-servlet-api>
         <tomcat-embed-el>9.0.46</tomcat-embed-el>
@@ -352,11 +352,6 @@
 
     </dependencies>
 
-    <scm>
-        <connection>scm:git:http://git-lab-srv.tradenet.com/kn/java-team/tradenet/einvest-group/tnscheduler.git
-        </connection>
-    </scm>
-
 
     <build>
         <finalName>${project.filename}</finalName>
@@ -500,9 +495,9 @@
                 <configuration>
                     <jdbc>
                         <driver>oracle.jdbc.OracleDriver</driver>
-                        <url>${tradenet.db.url}</url>
-                        <user>${tradenet-db-user}</user>
-                        <password>${tradenet-db-password}</password>
+                        <url>${scheduler.db.url}</url>
+                        <user>${scheduler-db-user}</user>
+                        <password>${scheduler-db-password}</password>
                     </jdbc>
                     <generator>
                         <generate>
@@ -517,16 +512,12 @@
                             <name>org.jooq.meta.oracle.OracleDatabase</name>
                             <includes>
                                 <!-- DB TYPES -->
-                                |${tradesuper-schema}.MULTI_VARCHAR|${tradesuper-schema}.MULTI_DATE|${tradesuper-schema}.MULTI_NUMBER|${tradesuper-schema}.MULTI_NUMBER_SCALE
-                                <!-- DB TABLES -->
-                                |TN_SCHEDULER_JOB
-                                |SMV_CLIENTS_EXPIRED
-                                |SM_KYC_INDIVIDUAL_INTEGRATION
+
 
                             </includes>
                             <schemata>
                                 <schema>
-                                    <inputSchema>${tradesuper-schema}</inputSchema>
+                                    <inputSchema>${scheduler-schema}</inputSchema>
                                 </schema>
                             </schemata>
                         </database>

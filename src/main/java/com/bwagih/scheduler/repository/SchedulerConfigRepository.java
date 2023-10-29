@@ -2,7 +2,6 @@ package com.bwagih.scheduler.repository;
 
 
 import com.bwagih.scheduler.model.SchedulerJobModel;
-import com.knet.tradenet.tnscheduler.db.Tables;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jooq.DSLContext;
